@@ -7,6 +7,7 @@ describe("Dada la clase Componente", () => {
       const className = "contenedor";
       const tagName = "p";
 
+      // eslint-disable-next-line no-unused-vars
       const parrafo = new Componente(elementoPadre, className, tagName);
 
       const resultado = elementoPadre.querySelector("p.contenedor");
