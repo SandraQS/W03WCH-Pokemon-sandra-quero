@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --collect--coverage"
+    "test": "jest --watchAll --collect--coverage",
+    "complie.css": "sass src/styles.scss styles.css"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +17,8 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
-    "jest": "^27.2.5"
+    "jest": "^27.2.5",
+    "sass": "^1.43.2"
   },
   "jest": {
     "testEnvironment": "jsdom"
