@@ -108,4 +108,5 @@ dist
 .DS_Store
 
 #Ignoramos archivos compilados
-. css y .css.map
+style.css
+style.css.map
