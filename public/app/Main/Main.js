@@ -13,7 +13,7 @@ class Main extends Componente {
     const secion = `
         <section class="contenedor-pokemons">
           <h2 class="contenedor-pokemons__titulo">${this.titulo}</h2>
-          <ul class="contenedor-pokemons__lista"></ul>
+          
         </section>
     `;
     this.elemento.innerHTML = secion;
