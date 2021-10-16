@@ -110,3 +110,7 @@ dist
 #Ignoramos archivos compilados
 styles.css
 styles.css.map
+
+#Propiedades sonarqube
+sonar-project.properties
+.scannerwork/
