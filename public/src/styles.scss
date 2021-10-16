@@ -8,6 +8,7 @@ body {
   background-size: cover;
   margin: 0;
   padding: 0;
+  font-family: "Cutive Mono", monospace;
 }
 
 .contenedor-pokemons {
@@ -82,5 +83,14 @@ body {
   &__numero,
   &__tipo {
     margin: 2px;
+  }
+  &__tipo {
+    background-color: cadetblue;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    width: max-content;
+    color: white;
   }
 }
