@@ -6,13 +6,13 @@ class ServiciosPokemon {
 
   async getPokemon(url) {
     if (url) {
-      const response = await fetch(url);
-      const infoPokemonIndividual = await response.json();
+      const segundaResponse = await fetch(url);
+      const infoPokemonIndividual = await segundaResponse.json();
 
       return infoPokemonIndividual;
     }
-    const response = await fetch(this.urlPokemonAppi);
-    const infoPokemon = await response.json();
+    const primeraResponse = await fetch(this.urlPokemonAppi);
+    const infoPokemon = await primeraResponse.json();
 
     return infoPokemon;
   }
