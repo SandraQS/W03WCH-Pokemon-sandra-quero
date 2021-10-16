@@ -24,7 +24,7 @@ const elementoPadrePokemons = document.querySelector(
 
 const mostrarTodo = (nuevoOffset) => {
   const infoPokemon = new ServiciosPokemon(
-    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0${nuevoOffset}`
+    `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${nuevoOffset}`
   );
 
   (async () => {
@@ -42,7 +42,7 @@ const mostrarTodo = (nuevoOffset) => {
         nombre:
           nuevoPokemon.name.charAt(0).toUpperCase() +
           nuevoPokemon.name.slice(1),
-        numero: `#${nuevoPokemon.id}`,
+        numero: `#${("00" + nuevoPokemon.id).slice(-3)}`,
         tipo:
           nuevoPokemon.types[0].type.name.charAt(0).toUpperCase() +
           nuevoPokemon.types[0].type.name.slice(1),
@@ -53,13 +53,13 @@ const mostrarTodo = (nuevoOffset) => {
 
 function siguiente() {
   elementoPadrePokemons.innerHTML = "";
-  contador += 10;
+  contador += 12;
   mostrarTodo(contador);
 }
 
 function atras() {
   elementoPadrePokemons.innerHTML = "";
-  contador -= 10;
+  contador -= 12;
   mostrarTodo(contador);
 }
 

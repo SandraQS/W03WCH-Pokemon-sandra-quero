@@ -5,20 +5,28 @@ class Pokemon extends Componente {
   nombre;
   numero;
   tipo;
-  constructor(elementoPadre, { imagen, nombre, numero, tipo }) {
+  capturado = false;
+
+  constructor(elementoPadre, { imagen, nombre, numero, tipo }, capturado) {
     super(elementoPadre, "datos-pokemon", "li");
     this.imagen = imagen;
     this.nombre = nombre;
     this.numero = numero;
     this.tipo = tipo;
+    this.capturado = capturado;
 
     this.insertarHtml();
   }
 
   insertarHtml() {
     const infoPokemon = `
+        <div class="datos-pokemon__contenedor-imagen">
+          <img src="${this.imagen}" alt="" class="datos-pokemon__imagen" />
+        </div>
+        <div class="datos-pokemon__contenedor-marcador">
+          <img src="/public/media/pokeball.png" alt="" class="datos-pokemon__marcador" />
+        </div>
         <h2 class="datos-pokemon__titulo">${this.nombre}</h2>
-        <img src="${this.imagen}" alt="" class="datos-pokemon__imagen" />
         <p class="datos-pokemon__numero">${this.numero}</p>
         <p class="datos-pokemon__tipo">${this.tipo}</p>
     `;
