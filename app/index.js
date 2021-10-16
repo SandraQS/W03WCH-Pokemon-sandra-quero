@@ -8,6 +8,7 @@ const prueba = new Componente(elementoPadre, "datos-pokemon", "li");
 const elementoPadrePokemon = document.querySelector(
   ".contenedor-pokemons__lista"
 );
+// eslint-disable-next-line no-unused-vars
 const tarjetaPokemon = new Pokemon(elementoPadrePokemon, {
   imagen: "hola",
   nombre: "Charmander",
