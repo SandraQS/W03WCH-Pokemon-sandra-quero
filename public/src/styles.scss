@@ -1,3 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rgb(255, 170, 218);
+  background-image: url(/public/media/fondo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Cutive Mono", monospace;
+}
+
+.contenedor-pokemons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+
+  &__lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.datos-pokemon {
+  background-image: url(/public/media/pokeball-fondo.png);
+  background-size: cover;
+  background-position: 10px 50px;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.414);
+  border-radius: 30px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px 20px 30px;
+  position: relative;
+  width: 200px;
+  height: 230px;
+  box-shadow: 5px 5px 20px rgba(0, 128, 128, 0.359);
+  &__contenedor-marcador {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  &__marcador {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &__contenedor-imagen {
+    width: 150px;
+    height: 150px;
+    align-self: center;
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    &:hover {
+      width: 180px;
+      height: 180px;
+      top: -70px;
+    }
+  }
+  &__imagen {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    &:hover {
+      width: 180px;
+      height: 180px;
+    }
+  }
+  &__titulo,
+  &__numero,
+  &__tipo {
+    margin: 2px;
+  }
+  &__tipo {
+    background-color: cadetblue;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    width: max-content;
+    color: white;
+  }
 }

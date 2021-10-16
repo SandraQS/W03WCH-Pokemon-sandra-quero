@@ -1,5 +1,5 @@
 class ServiciosPokemon {
-  urlPokemonAppi = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`;
+  urlPokemonAppi = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=0`;
   constructor(urlPokemonAppi) {
     this.urlPokemonAppi = urlPokemonAppi;
   }
