@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --collect--coverage",
-    "complie.css": "sass src/styles.scss styles.css"
+    "complie-css": "sass public/src/styles.scss public/styles.css"
   },
   "keywords": [],
   "author": "",
