@@ -26,8 +26,8 @@ class Pokemon extends Componente {
         <div class="datos-pokemon__contenedor-marcador">
           <img src="/public/media/pokeball.png" alt="" class="datos-pokemon__marcador" />
         </div>
-        <h2 class="datos-pokemon__titulo">${this.nombre}</h2>
         <p class="datos-pokemon__numero">${this.numero}</p>
+        <h2 class="datos-pokemon__titulo">${this.nombre}</h2>
         <p class="datos-pokemon__tipo">${this.tipo}</p>
     `;
     this.elemento.innerHTML = infoPokemon;

@@ -25,7 +25,11 @@ body {
 }
 
 .datos-pokemon {
-  background-color: rgba(255, 255, 255, 0.544);
+  background-image: url(/public/media/pokeball-fondo.png);
+  background-size: cover;
+  background-position: 10px 50px;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.414);
   border-radius: 30px;
   margin: 30px;
   display: flex;
@@ -34,7 +38,8 @@ body {
   padding: 30px 20px 30px;
   position: relative;
   width: 200px;
-  height: 200px;
+  height: 230px;
+  box-shadow: 5px 5px 20px rgba(0, 128, 128, 0.359);
   &__contenedor-marcador {
     width: 20px;
     height: 20px;
@@ -76,9 +81,6 @@ body {
   &__titulo,
   &__numero,
   &__tipo {
-    margin: 0;
-  }
-  &__titulo {
-    margin-top: 10px;
+    margin: 2px;
   }
 }
