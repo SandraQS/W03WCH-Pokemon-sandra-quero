@@ -24,7 +24,7 @@ const elementoPadrePokemons = document.querySelector(
 
 const mostrarTodo = (nuevoOffset) => {
   const infoPokemon = new ServiciosPokemon(
-    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=∆${nuevoOffset}`
+    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0${nuevoOffset}`
   );
 
   (async () => {
@@ -52,16 +52,27 @@ const mostrarTodo = (nuevoOffset) => {
 };
 
 function siguiente() {
-  if (contador !== 100) {
-    elementoPadrePokemons.innerHTML = "";
-    contador += 10;
-    mostrarTodo(contador);
-  }
+  elementoPadrePokemons.innerHTML = "";
+  contador += 10;
+  mostrarTodo(contador);
+}
+
+function atras() {
+  elementoPadrePokemons.innerHTML = "";
+  contador -= 10;
+  mostrarTodo(contador);
 }
 
 mostrarTodo(contador);
 
 const botonAtras = new Boton(
+  elementoPadreBotones,
+  "boton-atras",
+  "Atrás",
+  atras
+);
+
+const botonSiguiente = new Boton(
   elementoPadreBotones,
   "boton-siguiente",
   "Siguiente",
