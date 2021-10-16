@@ -21,7 +21,7 @@ body {
   &__lista {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -41,6 +41,7 @@ body {
   width: 200px;
   height: 230px;
   box-shadow: 5px 5px 20px rgba(0, 128, 128, 0.359);
+
   &__contenedor-marcador {
     width: 20px;
     height: 20px;
@@ -57,6 +58,7 @@ body {
       opacity: 0.5;
     }
   }
+
   &__contenedor-imagen {
     width: 150px;
     height: 150px;
@@ -70,6 +72,7 @@ body {
       top: -70px;
     }
   }
+
   &__imagen {
     width: 150px;
     height: 150px;
@@ -79,11 +82,13 @@ body {
       height: 180px;
     }
   }
+
   &__titulo,
   &__numero,
   &__tipo {
     margin: 2px;
   }
+
   &__tipo {
     background-color: cadetblue;
     border: 1px solid white;
