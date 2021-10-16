@@ -16,10 +16,30 @@ const tarjetaPokemon = new Pokemon(elementoPadrePokemon, {
   tipo: "fuego",
 });
 
-const prueba2 = new ServiciosPokemon();
+const infoPokemon = new ServiciosPokemon();
 
 (async () => {
-  const response = await prueba2.getPokemon();
-  const primeraUrl = response.results[1].url;
-  console.log(primeraUrl);
+  const response = await infoPokemon.getPokemon();
+  const arrayUrls = response.results.map((nuevaUrl) => {
+    const urlPokemon = nuevaUrl.url;
+    // console.log(urlPokemon);
+    return urlPokemon;
+  });
+  // console.log(arrayUrls);
+  arrayUrls.forEach(async (urlPokemon) => {
+    const nuevoPokemon = await infoPokemon.getPokemon(urlPokemon);
+    console.log(nuevoPokemon);
+  });
 })();
+
+// (async () => {
+//   const data = await infoPokemon.getPokemon();
+//   const URLArray = data.results.map((pokemonFirstObject) => {
+//     const pokemonInfoURL = pokemonFirstObject.url;
+//     return pokemonInfoURL;
+//   });
+//   URLArray.forEach(async (url) => {
+//     const pokemonDetail = await infoPokemon.getPokemon(url);
+//     console.log(pokemonDetail);
+//   });
+// })();
