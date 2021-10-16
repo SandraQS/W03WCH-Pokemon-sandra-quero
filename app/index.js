@@ -9,12 +9,12 @@ const elementoPadrePokemon = document.querySelector(
   ".contenedor-pokemons__lista"
 );
 // eslint-disable-next-line no-unused-vars
-const tarjetaPokemon = new Pokemon(elementoPadrePokemon, {
-  imagen: "hola",
-  nombre: "Charmander",
-  numero: "#000",
-  tipo: "fuego",
-});
+// const tarjetaPokemon = new Pokemon(elementoPadrePokemon, {
+//   imagen: "hola",
+//   nombre: "Charmander",
+//   numero: "#000",
+//   tipo: "fuego",
+// });
 
 const infoPokemon = new ServiciosPokemon();
 
@@ -29,6 +29,15 @@ const infoPokemon = new ServiciosPokemon();
   arrayUrls.forEach(async (urlPokemon) => {
     const nuevoPokemon = await infoPokemon.getPokemon(urlPokemon);
     console.log(nuevoPokemon);
+    new Pokemon(elementoPadrePokemon, {
+      imagen: nuevoPokemon.sprites.other.dream_world.front_default,
+      nombre:
+        nuevoPokemon.name.charAt(0).toUpperCase() + nuevoPokemon.name.slice(1),
+      numero: `#${nuevoPokemon.id}`,
+      tipo:
+        nuevoPokemon.types[0].type.name.charAt(0).toUpperCase() +
+        nuevoPokemon.types[0].type.name.slice(1),
+    });
   });
 })();
 

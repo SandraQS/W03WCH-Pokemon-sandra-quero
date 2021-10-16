@@ -17,8 +17,8 @@ class Pokemon extends Componente {
 
   insertarHtml() {
     const infoPokemon = `
-        <img src="" alt="" class="datos-pokemon__imagen" />
         <h2 class="datos-pokemon__titulo">${this.nombre}</h2>
+        <img src="${this.imagen}" alt="" class="datos-pokemon__imagen" />
         <p class="datos-pokemon__numero">${this.numero}</p>
         <p class="datos-pokemon__tipo">${this.tipo}</p>
     `;
