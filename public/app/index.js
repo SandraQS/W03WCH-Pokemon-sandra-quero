@@ -42,7 +42,7 @@ const mostrarTodo = (nuevoOffset) => {
       return urlPokemon;
     });
 
-    arrayUrls.forEach(async (urlPokemon) => {
+    arrayUrls.forEach(async (urlPokemon, index) => {
       const nuevoPokemon = await infoPokemon.getPokemon(urlPokemon);
       new Pokemon(elementoPadrePokemons, {
         imagen: nuevoPokemon.sprites.other.dream_world.front_default,
@@ -54,8 +54,21 @@ const mostrarTodo = (nuevoOffset) => {
           nuevoPokemon.types[0].type.name.charAt(0).toUpperCase() +
           nuevoPokemon.types[0].type.name.slice(1),
       });
+
+      const elementoPadreCapturar = await document.querySelectorAll(
+        ".datos-pokemon__contenedor-marcador"
+      );
+      const botonCapturarPokemon = await new Boton(
+        elementoPadreCapturar[index],
+        "datos-pokemon__boton-marcador",
+        `<img src="media/pokeball.png" alt="" class="datos-pokemon__marcador" />`,
+        capturarPokemon
+      );
+      function capturarPokemon() {
+        console.log("hola");
+      }
       ////////////////-----------> AQUI
-      // const botonMarcador = await document.querySelector(
+      // const botonMarcador = document.querySelector(
       //   ".datos-pokemon__boton-marcador"
       // );
       // console.log(botonMarcador);
@@ -67,7 +80,9 @@ const mostrarTodo = (nuevoOffset) => {
     });
   })();
 };
-
+// function prueba() {
+//   console.log("hola");
+// }
 function siguiente() {
   if (contador !== 1118) {
     elementoPadrePokemons.innerHTML = "";
@@ -103,3 +118,5 @@ const botonSiguiente = new Boton(
   ">",
   siguiente
 );
+
+//<button class="datos-pokemon__boton-marcador"> </button>
