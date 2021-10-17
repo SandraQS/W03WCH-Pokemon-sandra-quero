@@ -58,7 +58,7 @@ const mostrarTodo = (nuevoOffset) => {
       const elementoPadreCapturar = document.querySelectorAll(
         ".datos-pokemon__contenedor-marcador"
       );
-      console.log(JSON.stringify(pokemonIndividual));
+
       const botonCapturarPokemon = new Boton(
         pokemonIndividual.contenedorBoton,
         "datos-pokemon__boton-marcador",
@@ -70,7 +70,6 @@ const mostrarTodo = (nuevoOffset) => {
       );
 
       async function capturarPokemon() {
-        console.log(botonMarcador);
         if (pokemonIndividual.capturado) {
           botonMarcador[index].classList.remove("datos-pokemon__marcador--on");
           pokemonIndividual.capturado = false;
@@ -81,16 +80,6 @@ const mostrarTodo = (nuevoOffset) => {
           pokemonIndividual.capturado = true;
           console.log(pokemonIndividual.capturado);
           //añadir
-          /*  async (()=>{
-            const nuevoPokemonCapturado = {
-              nombre = pokemonIndividual.nombre,
-              id = pokemonIndividual.numero
-            }
-            await this.response = this.postPokemon(`https://appi-pokemon-sqs.herokuapp.com/pokemon${id}`, nuevoPokemonCapturado);
-          })(); */
-          //crear funcion de llamada directa asincrona,
-          //contruir objeto con todos los datos que queremos.
-          //await con this.response postPokemon(url, objeto)
         }
       }
     });

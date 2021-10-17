@@ -1,5 +1,6 @@
 class ServiciosPokemon {
   urlPokemonAppi = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=0`;
+  miApi = `https://appi-pokemon-sqs.herokuapp.com/pokemon/`;
 
   constructor(urlPokemonAppi) {
     this.urlPokemonAppi = urlPokemonAppi;
@@ -18,17 +19,19 @@ class ServiciosPokemon {
     return infoPokemon;
   }
 
-  async postPokemon(url, objeto) {
-    const response = await fetch(url, {
+  async postPokemon(objeto) {
+    console.log(objeto);
+    const response = await fetch(this.miApi, {
       method: "POST",
-      body: JSON.stringify(objeto), //objeto que queremos crear, con la propiedades que queremos.
-      headres: {
+      body: JSON.stringify(objeto),
+      headers: {
         "Content-Type": "aplication/json",
       },
     });
-
-    const nuevoPokemon = await response.json();
-    return nuevoPokemon;
+    // console.log(response);
+    const pokemonCapturado = await response.json();
+    console.log(pokemonCapturado);
+    return pokemonCapturado;
   }
 }
 export default ServiciosPokemon;
