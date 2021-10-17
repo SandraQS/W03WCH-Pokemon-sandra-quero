@@ -5,14 +5,17 @@ import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Boton from "./Boton/Boton.js";
 import Paginacion from "./Paginacion/Paginacion.js";
+import Enlace from "./Enlace/Enlace.js";
 
 let contador = 0;
 let numeroPokemon = 12;
 const elementoPadrePrincipal = document.querySelector(".contenedor-principal");
 const header = new Header(elementoPadrePrincipal, "Pokemon SQS");
 const main = new Main(elementoPadrePrincipal, "Todos los pokemon");
+
 const mainContenedor = document.querySelector("main");
 const elementoPAdreContenedor = document.querySelector(".contenedor-pokemons");
+
 const section = new Componente(
   mainContenedor,
   "contenedor-paginacion",

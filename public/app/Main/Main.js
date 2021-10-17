@@ -13,6 +13,8 @@ class Main extends Componente {
     const secion = `
         <section class="contenedor-pokemons">
           <h2 class="contenedor-pokemons__titulo">${this.titulo}</h2>
+          <a href="/public/pokedex.html" class="contenedor-pokemons__pokedex">pokedex</a>
+
           
         </section>
     `;

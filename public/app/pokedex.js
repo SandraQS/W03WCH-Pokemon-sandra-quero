@@ -34,7 +34,6 @@ const elementoPadrePokemons = document.querySelector(
 const nuevoPokemonPost = new ServiciosPokemon();
 
 async function prueba() {
-  debugger;
   const prueba = {
     nombre: "Sandra",
     edad: 30,
