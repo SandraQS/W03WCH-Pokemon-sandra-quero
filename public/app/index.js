@@ -55,10 +55,10 @@ const mostrarTodo = (nuevoOffset) => {
           nuevoPokemon.types[0].type.name.slice(1),
       });
 
-      const elementoPadreCapturar = document.querySelectorAll(
+      const elementoPadreCapturar = await document.querySelectorAll(
         ".datos-pokemon__contenedor-marcador"
       );
-      const botonCapturarPokemon = new Boton(
+      const botonCapturarPokemon = await new Boton(
         elementoPadreCapturar[index],
         "datos-pokemon__boton-marcador",
         `<img src="media/pokeball.png" alt="" class="datos-pokemon__marcador" />`,
