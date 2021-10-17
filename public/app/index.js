@@ -4,13 +4,20 @@ import ServiciosPokemon from "./ServiciosPokemon/ServiciosPokemon.js";
 import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Boton from "./Boton/Boton.js";
+import Paginacion from "./Paginacion/Paginacion.js";
 
 let contador = 0;
 const elementoPadrePrincipal = document.querySelector(".contenedor-principal");
 const header = new Header(elementoPadrePrincipal, "Pokemon SQS");
 const main = new Main(elementoPadrePrincipal, "Todos los pokemon");
-const elementoPadreBotones = document.querySelector("main");
+const mainContenedor = document.querySelector("main");
 const elementoPAdreContenedor = document.querySelector(".contenedor-pokemons");
+const section = new Componente(
+  mainContenedor,
+  "contenedor-paginacion",
+  "section"
+);
+const elementoPadreBotones = document.querySelector(".contenedor-paginacion");
 
 // eslint-disable-next-line no-unused-vars
 const contenedorPokemons = new Componente(
@@ -47,6 +54,16 @@ const mostrarTodo = (nuevoOffset) => {
           nuevoPokemon.types[0].type.name.charAt(0).toUpperCase() +
           nuevoPokemon.types[0].type.name.slice(1),
       });
+      ////////////////-----------> AQUI
+      // const botonMarcador = await document.querySelector(
+      //   ".datos-pokemon__boton-marcador"
+      // );
+      // console.log(botonMarcador);
+      // botonMarcador.addEventListener("click", () => {
+      //   // botonMarcador.classList.add("datos-pokemon__marcador--on");
+      //   console.log("hola");
+      // });
+      ///////<-------------------
     });
   })();
 };
@@ -55,26 +72,35 @@ function siguiente() {
   elementoPadrePokemons.innerHTML = "";
   contador += 12;
   mostrarTodo(contador);
+  contadorPaginacion((contador += 12));
+  console.log(contador);
 }
 
 function atras() {
-  elementoPadrePokemons.innerHTML = "";
-  contador -= 12;
-  mostrarTodo(contador);
+  if (contador !== 0) {
+    elementoPadrePokemons.innerHTML = "";
+    contador -= 12;
+    mostrarTodo(contador);
+    contadorPaginacion((contador -= 12));
+    console.log(contador);
+  }
 }
+console.log(contador);
 
 mostrarTodo(contador);
 
-const botonAtras = new Boton(
-  elementoPadreBotones,
-  "boton-atras",
-  "Atrás",
-  atras
-);
+const botonAtras = new Boton(elementoPadreBotones, "boton-atras", "<", atras);
+
+const paginacion = new Paginacion(elementoPadreBotones, contador, `... 1118`);
+
+function contadorPaginacion(contadorPaginas) {
+  paginacion.paginas = contadorPaginas;
+  paginacion.insertarHtml();
+}
 
 const botonSiguiente = new Boton(
   elementoPadreBotones,
   "boton-siguiente",
-  "Siguiente",
+  ">",
   siguiente
 );

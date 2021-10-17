@@ -54,9 +54,20 @@ body {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    opacity: 0.5;
     &:hover {
-      opacity: 0.5;
+      opacity: 0.8;
     }
+  }
+  &__boton-marcador {
+    background-color: transparent;
+    border: 0;
+  }
+  .datos-pokemon__marcador--on {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 1;
   }
 
   &__contenedor-imagen {
