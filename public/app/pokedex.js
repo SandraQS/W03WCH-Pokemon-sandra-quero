@@ -10,7 +10,8 @@ let contador = 0;
 let numeroPokemon = 12;
 const elementoPadrePrincipal = document.querySelector(".contenedor-principal");
 const header = new Header(elementoPadrePrincipal, "Pokemon SQS");
-const main = new Main(elementoPadrePrincipal, "Todos los pokemon");
+const main = new Main(elementoPadrePrincipal, "Mis pokemon");
+
 const mainContenedor = document.querySelector("main");
 const elementoPAdreContenedor = document.querySelector(".contenedor-pokemons");
 const section = new Componente(
@@ -30,15 +31,15 @@ const elementoPadrePokemons = document.querySelector(
   ".contenedor-pokemons__lista"
 );
 
-const mostrarTodo = (nuevoOffset) => {
+const mostrarTodo = (miUrl) => {
   const infoPokemon = new ServiciosPokemon(
-    `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${nuevoOffset}`
+    `https://appi-pokemon-sqs.herokuapp.com/pokemon`
   );
 
   (async () => {
     const response = await infoPokemon.getPokemon();
-    const arrayUrls = response.results.map((nuevaUrl) => {
-      const urlPokemon = nuevaUrl.url;
+    const arrayUrls = response.results.map((miUrl) => {
+      const urlPokemon = miUrl.url;
       return urlPokemon;
     });
 
@@ -54,43 +55,31 @@ const mostrarTodo = (nuevoOffset) => {
           nuevoPokemon.types[0].type.name.charAt(0).toUpperCase() +
           nuevoPokemon.types[0].type.name.slice(1),
       });
-
+      console.log(pokemonIndividual);
       const elementoPadreCapturar = document.querySelectorAll(
         ".datos-pokemon__contenedor-marcador"
       );
-      console.log(JSON.stringify(pokemonIndividual));
+      console.log(pokemonIndividual.contenedorBoton);
       const botonCapturarPokemon = new Boton(
         pokemonIndividual.contenedorBoton,
         "datos-pokemon__boton-marcador",
         `<img src="media/pokeball.png" alt="" class="datos-pokemon__marcador" />`,
         capturarPokemon
       );
+
       const botonMarcador = document.querySelectorAll(
         ".datos-pokemon__marcador"
       );
 
       async function capturarPokemon() {
-        console.log(botonMarcador);
         if (pokemonIndividual.capturado) {
           botonMarcador[index].classList.remove("datos-pokemon__marcador--on");
           pokemonIndividual.capturado = false;
           console.log(pokemonIndividual.capturado);
-          //delete
         } else {
           botonMarcador[index].classList.add("datos-pokemon__marcador--on");
           pokemonIndividual.capturado = true;
           console.log(pokemonIndividual.capturado);
-          //añadir
-          /*  async (()=>{
-            const nuevoPokemonCapturado = {
-              nombre = pokemonIndividual.nombre,
-              id = pokemonIndividual.numero
-            }
-            await this.response = this.postPokemon(`https://appi-pokemon-sqs.herokuapp.com/pokemon${id}`, nuevoPokemonCapturado);
-          })(); */
-          //crear funcion de llamada directa asincrona,
-          //contruir objeto con todos los datos que queremos.
-          //await con this.response postPokemon(url, objeto)
         }
       }
     });
