@@ -73,7 +73,6 @@ function siguiente() {
   contador += 12;
   mostrarTodo(contador);
   contadorPaginacion((contador += 12));
-  console.log(contador);
 }
 
 function atras() {
@@ -82,10 +81,8 @@ function atras() {
     contador -= 12;
     mostrarTodo(contador);
     contadorPaginacion((contador -= 12));
-    console.log(contador);
   }
 }
-console.log(contador);
 
 mostrarTodo(contador);
 
