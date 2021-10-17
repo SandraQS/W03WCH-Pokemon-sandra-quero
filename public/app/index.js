@@ -7,6 +7,7 @@ import Boton from "./Boton/Boton.js";
 import Paginacion from "./Paginacion/Paginacion.js";
 
 let contador = 0;
+let numeroPokemon = 12;
 const elementoPadrePrincipal = document.querySelector(".contenedor-principal");
 const header = new Header(elementoPadrePrincipal, "Pokemon SQS");
 const main = new Main(elementoPadrePrincipal, "Todos los pokemon");
@@ -64,7 +65,13 @@ const mostrarTodo = (nuevoOffset) => {
         `<img src="media/pokeball.png" alt="" class="datos-pokemon__marcador" />`,
         capturarPokemon
       );
+      const botonMarcador = document.querySelectorAll(
+        ".datos-pokemon__marcador"
+      );
+
       function capturarPokemon() {
+        console.log(botonMarcador[index]);
+        botonMarcador[index].classList.add("datos-pokemon__marcador--on");
         console.log("hola");
       }
       ////////////////-----------> AQUI
@@ -85,10 +92,14 @@ const mostrarTodo = (nuevoOffset) => {
 // }
 function siguiente() {
   if (contador !== 1118) {
+    if (contador === 0) {
+      numeroPokemon = 12;
+    }
     elementoPadrePokemons.innerHTML = "";
     contador += 12;
+
     mostrarTodo(contador);
-    contadorPaginacion((contador += 12));
+    contadorPaginacion(numeroPokemon + 12);
   }
 }
 
@@ -96,8 +107,12 @@ function atras() {
   if (contador !== 0) {
     elementoPadrePokemons.innerHTML = "";
     contador -= 12;
+    let numeroPokemon = 12;
     mostrarTodo(contador);
-    contadorPaginacion((contador -= 12));
+    contadorPaginacion(numeroPokemon - 12);
+  }
+  if (contador === 0) {
+    contadorPaginacion(numeroPokemon);
   }
 }
 
