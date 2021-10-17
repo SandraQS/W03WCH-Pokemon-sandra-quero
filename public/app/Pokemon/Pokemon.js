@@ -6,14 +6,16 @@ class Pokemon extends Componente {
   numero;
   tipo;
   capturado = false;
+  contenedorBoton;
+  imagenMarcador;
 
-  constructor(elementoPadre, { imagen, nombre, numero, tipo }, capturado) {
+  constructor(elementoPadre, { imagen, nombre, numero, tipo }) {
     super(elementoPadre, "datos-pokemon", "li");
     this.imagen = imagen;
     this.nombre = nombre;
     this.numero = numero;
     this.tipo = tipo;
-    this.capturado = capturado;
+    this.capturado = false;
 
     this.insertarHtml();
   }
@@ -30,6 +32,9 @@ class Pokemon extends Componente {
         <p class="datos-pokemon__tipo">${this.tipo}</p>
     `;
     this.elemento.innerHTML = infoPokemon;
+    this.contenedorBoton = this.elemento.querySelector(
+      ".datos-pokemon__contenedor-marcador"
+    );
   }
 }
 

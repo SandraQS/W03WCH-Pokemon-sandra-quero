@@ -5,14 +5,17 @@ import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Boton from "./Boton/Boton.js";
 import Paginacion from "./Paginacion/Paginacion.js";
+import Enlace from "./Enlace/Enlace.js";
 
 let contador = 0;
 let numeroPokemon = 12;
 const elementoPadrePrincipal = document.querySelector(".contenedor-principal");
 const header = new Header(elementoPadrePrincipal, "Pokemon SQS");
 const main = new Main(elementoPadrePrincipal, "Todos los pokemon");
+
 const mainContenedor = document.querySelector("main");
 const elementoPAdreContenedor = document.querySelector(".contenedor-pokemons");
+
 const section = new Componente(
   mainContenedor,
   "contenedor-paginacion",
@@ -39,13 +42,12 @@ const mostrarTodo = (nuevoOffset) => {
     const response = await infoPokemon.getPokemon();
     const arrayUrls = response.results.map((nuevaUrl) => {
       const urlPokemon = nuevaUrl.url;
-
       return urlPokemon;
     });
 
     arrayUrls.forEach(async (urlPokemon, index) => {
       const nuevoPokemon = await infoPokemon.getPokemon(urlPokemon);
-      new Pokemon(elementoPadrePokemons, {
+      const pokemonIndividual = new Pokemon(elementoPadrePokemons, {
         imagen: nuevoPokemon.sprites.other.dream_world.front_default,
         nombre:
           nuevoPokemon.name.charAt(0).toUpperCase() +
@@ -56,11 +58,12 @@ const mostrarTodo = (nuevoOffset) => {
           nuevoPokemon.types[0].type.name.slice(1),
       });
 
-      const elementoPadreCapturar = await document.querySelectorAll(
+      const elementoPadreCapturar = document.querySelectorAll(
         ".datos-pokemon__contenedor-marcador"
       );
-      const botonCapturarPokemon = await new Boton(
-        elementoPadreCapturar[index],
+
+      const botonCapturarPokemon = new Boton(
+        pokemonIndividual.contenedorBoton,
         "datos-pokemon__boton-marcador",
         `<img src="media/pokeball.png" alt="" class="datos-pokemon__marcador" />`,
         capturarPokemon
@@ -69,37 +72,29 @@ const mostrarTodo = (nuevoOffset) => {
         ".datos-pokemon__marcador"
       );
 
-      function capturarPokemon() {
-        console.log(botonMarcador[index]);
-        botonMarcador[index].classList.add("datos-pokemon__marcador--on");
-        console.log("hola");
+      async function capturarPokemon() {
+        if (pokemonIndividual.capturado) {
+          botonMarcador[index].classList.remove("datos-pokemon__marcador--on");
+          pokemonIndividual.capturado = false;
+          console.log(pokemonIndividual.capturado);
+          //delete
+        } else {
+          botonMarcador[index].classList.add("datos-pokemon__marcador--on");
+          pokemonIndividual.capturado = true;
+          console.log(pokemonIndividual.capturado);
+          //añadir
+        }
       }
-      ////////////////-----------> AQUI
-      // const botonMarcador = document.querySelector(
-      //   ".datos-pokemon__boton-marcador"
-      // );
-      // console.log(botonMarcador);
-      // botonMarcador.addEventListener("click", () => {
-      //   // botonMarcador.classList.add("datos-pokemon__marcador--on");
-      //   console.log("hola");
-      // });
-      ///////<-------------------
     });
   })();
 };
-// function prueba() {
-//   console.log("hola");
-// }
+
 function siguiente() {
   if (contador !== 1118) {
-    if (contador === 0) {
-      numeroPokemon = 12;
-    }
     elementoPadrePokemons.innerHTML = "";
     contador += 12;
-
     mostrarTodo(contador);
-    contadorPaginacion(numeroPokemon + 12);
+    contadorPaginacion(contador + 12);
   }
 }
 
@@ -107,12 +102,8 @@ function atras() {
   if (contador !== 0) {
     elementoPadrePokemons.innerHTML = "";
     contador -= 12;
-    let numeroPokemon = 12;
     mostrarTodo(contador);
-    contadorPaginacion(numeroPokemon - 12);
-  }
-  if (contador === 0) {
-    contadorPaginacion(numeroPokemon);
+    contadorPaginacion(contador);
   }
 }
 
