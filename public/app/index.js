@@ -69,10 +69,12 @@ const mostrarTodo = (nuevoOffset) => {
 };
 
 function siguiente() {
-  elementoPadrePokemons.innerHTML = "";
-  contador += 12;
-  mostrarTodo(contador);
-  contadorPaginacion((contador += 12));
+  if (contador !== 1118) {
+    elementoPadrePokemons.innerHTML = "";
+    contador += 12;
+    mostrarTodo(contador);
+    contadorPaginacion((contador += 12));
+  }
 }
 
 function atras() {
