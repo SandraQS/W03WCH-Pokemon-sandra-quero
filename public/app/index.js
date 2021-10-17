@@ -88,7 +88,7 @@ mostrarTodo(contador);
 
 const botonAtras = new Boton(elementoPadreBotones, "boton-atras", "<", atras);
 
-const paginacion = new Paginacion(elementoPadreBotones, contador, `... 1118`);
+const paginacion = new Paginacion(elementoPadreBotones, contador, `...1118`);
 
 function contadorPaginacion(contadorPaginas) {
   paginacion.paginas = contadorPaginas;

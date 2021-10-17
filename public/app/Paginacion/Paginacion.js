@@ -4,7 +4,7 @@ class Paginacion extends Componente {
   paginas;
   total;
   constructor(elementoPadre, paginas, total) {
-    super(elementoPadre, "contenedor-paginacion", "ul");
+    super(elementoPadre, "contenedor-paginacion__lista", "ul");
     this.paginas = 12;
     this.total = total;
 
