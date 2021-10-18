@@ -31,20 +31,6 @@ const elementoPadrePokemons = document.querySelector(
   ".contenedor-pokemons__lista"
 );
 
-const nuevoPokemonPost = new ServiciosPokemon();
-
-async function prueba() {
-  const prueba = {
-    nombre: "Sandra",
-    edad: 30,
-  };
-  const response2 = await nuevoPokemonPost.postPokemon({
-    nombre: "Sandra",
-    edad: "30",
-  });
-  return await response2;
-}
-prueba();
 // pokemonAllServices.createPokemon({
 //   name: form.element.value,
 //   img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg",
