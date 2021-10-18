@@ -25,7 +25,7 @@ class ServiciosPokemon {
       method: "POST",
       body: JSON.stringify(objeto),
       headers: {
-        "Content-Type": "aplication/json",
+        "Content-Type": "application/json",
       },
     });
     // console.log(response);

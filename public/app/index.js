@@ -83,6 +83,16 @@ const mostrarTodo = (nuevoOffset) => {
           pokemonIndividual.capturado = true;
           console.log(pokemonIndividual.capturado);
           //añadir
+          const nuevoPokemonPost = new ServiciosPokemon();
+
+          async function prueba() {
+            const response2 = await nuevoPokemonPost.postPokemon({
+              nombre: "Sandra",
+              edad: "30",
+            });
+            return await response2;
+          }
+          prueba();
         }
       }
     });
