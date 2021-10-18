@@ -85,14 +85,14 @@ const mostrarTodo = (nuevoOffset) => {
           //añadir
           const nuevoPokemonPost = new ServiciosPokemon();
 
-          async function prueba() {
+          async function capturarMiPokemon() {
             const response2 = await nuevoPokemonPost.postPokemon({
               nombre: "Sandra",
               edad: "30",
             });
             return await response2;
           }
-          prueba();
+          capturarMiPokemon();
         }
       }
     });
